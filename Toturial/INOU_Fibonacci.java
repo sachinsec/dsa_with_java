@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Fibonacci {
+public class INOU_Fibonacci {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int a = sc.nextInt();

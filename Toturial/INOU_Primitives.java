@@ -1,4 +1,4 @@
-public class Primitives {
+public class INOU_Primitives {
     public static void main(String[] args) {
     
     int roll =23;

@@ -1,4 +1,4 @@
-public class TypeCasting {
+public class INOU_TypeCasting {
     public static void main(String[] args) {
 
         int num = (int)(67.56f);

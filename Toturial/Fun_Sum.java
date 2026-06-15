@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Sum {
+public class Fun_Sum {
     public static void main(String[] args) {
         sum();
     }
@@ -15,3 +15,4 @@ public class Sum {
         System.out.println("Sum: "+c);
     }
 }
+

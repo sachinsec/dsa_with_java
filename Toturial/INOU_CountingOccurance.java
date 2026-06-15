@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class CountingOccurance {
+public class INOU_CountingOccurance {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         System.out.println("Enter Digits");

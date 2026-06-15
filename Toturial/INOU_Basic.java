@@ -1,4 +1,4 @@
-public class Basic {
+public class INOU_Basic {
     public static void main(String[] args) {
         int count =1;
         // while (count != 5) {
