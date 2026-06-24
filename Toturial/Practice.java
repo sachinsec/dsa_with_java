@@ -1,21 +1,34 @@
 public class Practice {
-
     public static void main(String[] args) {
-        int [] arr = {2,3,5,9};
-        int target = 8;
+        int [] arr = {-2,-5,8,9,10,11,23,45,68,98,99};
+        int target = -5;
 
-       int [] ans = Solution(arr,target);
-       System.out.println(ans);
+        Find(arr,target);
     }
 
-    static int[] Solution(int [] arr, int target){
+    static void Find(int[] arr,int target){
+        int ans = -1;
+        int start=0,end=arr.length-1;
 
-        for (int i = 0; i < arr.length-1; i++) {
-            if (arr[i]+arr[i+1]== target) {
-                return new int[]{i,i+1};
-            }
+        if (arr[0]==target) {
+            ans = 0;
+        }
+        else{
+            ans = 1;
         }
 
-        return new int[]{-1,-1};
+        for (; start <= end; start++) {
+           int mid = start + (end - start)/2;
+            if (target==arr[mid]) {
+                ans = mid;
+            }
+            else if(target > arr[mid]){
+                start = mid + 1;
+            }
+            else{
+                end = mid -1;
+            }
+        }
+        System.out.println(ans);
     }
 }
