@@ -1,3 +1,4 @@
 Binary Search in 2D arrays
 Selection in sort
 cyclic sort
+Binary square root
