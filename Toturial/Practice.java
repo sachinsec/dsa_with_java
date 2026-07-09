@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class Practice {
 
     public static void main(String[] args) {
-        int [] arr = {2, 3,9, 5, 1,};
+        int [] arr = {5, 4, 3, 2, 1};
        int [] ans =  mergesort(arr);
         System.out.println(Arrays.toString(ans));
     }
