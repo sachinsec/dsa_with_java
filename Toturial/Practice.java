@@ -1,57 +1,21 @@
-import java.util.Arrays;
-
 /**
  * Practice
  */
 public class Practice {
 
     public static void main(String[] args) {
-        int [] arr = {5, 4, 3, 2, 1};
-       int [] ans =  mergesort(arr);
-        System.out.println(Arrays.toString(ans));
+      subse("","abc");
     }
 
-    static int [] mergesort( int [] arr){
-        if (arr.length <= 1) {
-            return arr;
+    static void subse(String p, String up){
+
+        if (up.isEmpty()) {
+            System.out.println(p);
+            return;
         }
-        int mid = arr.length / 2;
+        char ch = up.charAt(0);
 
-        int [] left = mergesort(Arrays.copyOfRange(arr,0, mid));
-        int [] right = mergesort(Arrays.copyOfRange(arr, mid , arr.length));
-
-       return merge(left, right);
-    }
-
-    private static int [] merge(int [] first, int [] second){
-         int [] mix = new int[ first.length + second.length];
-        int i = 0;
-        int j = 0;
-        int k = 0;
-       
-        while (i < first.length && j < second.length) {
-            
-        if (first[i] < second[j]) {
-            mix[k] = first[i];
-            i++;
-        } else{
-            mix[k] = second[j];
-            j++;
-        }
-        k++;
-    }
-
-        while (i < first.length) {
-            mix[k] = first[i];
-            i++;
-            k++;
-        }
-        while ( j < second.length) {
-            mix[k] = second[j];
-            j++;
-            k++;
-        }
-        return mix;
-
+        subse(p + ch, up.substring(1));
+        subse(p, up.substring(1));
     }
 }
