@@ -8,7 +8,7 @@ public class LIN_SearchIn2DArray {
             {81,82},
             {78,98,23,12}
         };
-
+        //System.out.println(arr[0].length);
         int target = 12;
         int [] ans= search(arr, target);
         System.out.println(Arrays.toString(ans));

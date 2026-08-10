@@ -39,5 +39,8 @@ public class ARR_ArraylistExample {
             System.out.println(list.get(i));  // Pass index here, list[index] syntax will not work here For the output
         }
 
+        // If you want to insert data into any specific index
+        // list.add(index,value)--> list.add(0,23)
+
     }
 }

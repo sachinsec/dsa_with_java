@@ -1,7 +1,7 @@
 public class RECU_BinarySearch {
     public static void main(String[] args) {
         int [] arr = {1, 2, 3, 4, 56, 55};
-        int target = 58;
+        int target = 0;
         System.out.println(search(arr,target, 0, arr.length - 1));
 }
 

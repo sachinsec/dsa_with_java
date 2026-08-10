@@ -8,10 +8,10 @@ public class BIN_2D_RowColoum_sorted {
             {1, 2, 3, 4},
             {5, 6, 7, 8},
             {9, 10, 11, 12},
-            {13, 14, 15, 16}
+            {13, 14, 15, 16,17}
         };
 
-        System.out.println(Arrays.toString(check(arr,7)));
+        System.out.println(Arrays.toString(check(arr,17)));
     }
 
     static int[] check(int [][] nums, int target){

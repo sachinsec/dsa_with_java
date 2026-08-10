@@ -8,7 +8,7 @@ public class LL_Simple {
         list.add(93);
         list.add(29);
         list.addLast(00);
-        list.addFirst(00);
-        System.out.println(list.getLast());
+        list.addFirst(142);
+        System.out.println(list.getFirst());
     }
 }
