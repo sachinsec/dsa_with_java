@@ -1,11 +1,15 @@
 import java.util.Arrays;
+
+/**
+ * doubt
+ */
+class student{
+    int roll;
+}
 public class doubt {
+
     public static void main(String[] args) {
-        int [][] arr = {
-        {1, 2, 3},
-        {4, 5, 6},
-        {7, 8, 9,11}
-    };
-    System.out.println(Arrays.toString(arr[0]));
+    student s = new student();
+    System.out.println(s.roll);
     }
 }
