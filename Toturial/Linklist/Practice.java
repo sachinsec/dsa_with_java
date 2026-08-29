@@ -1,65 +1,83 @@
+import java.util.Arrays;
+
 /**
  * Practice
  */
-class Node{
-    int val;
-    Node next;
- public Node(int val){
-    this.val = val;
- }
-}
 
-class MyStack{
-    Node head;
-    int len=0;
-    void push(int val){
-     Node temp = new Node(val);
-     temp.next = head;
-     head = temp;
-     len++;
+class Queuecustom{
+    private int[] data;
+    static private int DEFAULT_SIZE = 10;
+    int end = 0;
 
+    public Queuecustom(){
+        this(DEFAULT_SIZE);
     }
-    void peek()throws Exception{
-        if (len == 0) {
-            throw new Exception ( "Stack is overflow");
-        }
-        System.out.println(head.val);
-    }
-    int pop()throws Exception{
-        if (len == 0) {
-            throw new Exception("Stack is underflow");
-        }
-        int x = head.val;
-         head =head.next;
-         len--;
-         return x;
-
+    public Queuecustom(int size){
+       this.data = new int[size];
     }
 
-    void display()throws Exception{
+    public boolean isFull(){
+        return end == data.length;
+    }
 
-        if(len == 0){
-            throw new Exception("Stack is Empty");
+    public boolean isEmpty(){
+        return end == 0;
+    }
+
+    public boolean insert(int val)throws Exception{
+
+        if (isFull()) {
+            throw new Exception("Queue is full");
         }
-        while (head!=null) {
-            System.out.println(head.val);
-            head = head.next;
+        data[end++]=val;
+        return true;
+    }
+
+    public int remove() throws Exception{
+        if (isEmpty()) {
+            throw new Exception("Queue is empty");
         }
+        int removed = data[0];
+
+        for (int i = 1; i < end; i++) {
+            data[i-1] = data[i];
+    }
+        end --;
+        return removed;
+    }
+    public int Front()throws Exception{
+        if (isEmpty()) {
+            throw new Exception("queue is mepty");
+        }
+        return data[0];
+    }
+
+    public void Display()throws Exception{
+        if (isEmpty()){
+            throw new Exception("Queue is empty");
+        }
+            for (int i = 0; i < end; i++) {
+                System.out.println(data[i]);
+            }
     }
 }
 public class Practice {
 
     public static void main(String[] args)throws Exception {
+        Queuecustom qq = new Queuecustom();
+        qq.insert(10);
+        qq.insert(20);
+        qq.insert(40);
+        qq.insert(50);
+        qq.insert(60);
+        qq.insert(70);
+        qq.insert(80);
+        qq.insert(90);
+        qq.insert(100);
+        qq.insert(200);
+        qq.insert(300);
+        qq.insert(400);
         
-        MyStack st = new MyStack();
-        st.push(10);
-        st.push(20);
-        st.push(30);
-        System.out.println("Peek Values ");
-        st.peek();
-        System.out.println("Removing pop");
-        System.out.println(st.pop());
-        System.out.println("Display");
-        st.display();
+        System.out.println(qq.isFull());
     }
 }
