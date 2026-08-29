@@ -1,123 +1,65 @@
 /**
  * Practice
  */
-
 class Node{
-    int value;
+    int val;
     Node next;
-    public Node(int value){
-        this.value = value;
-    }
+ public Node(int val){
+    this.val = val;
+ }
 }
 
-class linkedlist{
+class MyStack{
     Node head;
-    Node tail;
-    int size=0;
+    int len=0;
+    void push(int val){
+     Node temp = new Node(val);
+     temp.next = head;
+     head = temp;
+     len++;
 
-    void addtail(int value){
-        Node temp = new Node(value);
-        if (tail == null) {
-            head = tail = temp;
+    }
+    void peek()throws Exception{
+        if (len == 0) {
+            throw new Exception ( "Stack is overflow");
         }
-        tail.next = temp;
-        tail = temp;
-        size++;
+        System.out.println(head.val);
+    }
+    int pop()throws Exception{
+        if (len == 0) {
+            throw new Exception("Stack is underflow");
+        }
+        int x = head.val;
+         head =head.next;
+         len--;
+         return x;
+
     }
 
-    void addhead(int value){
-        Node temp = new Node(value);
-        if (head == null) {
-            head = tail = temp;
-        }
-        temp.next =  head;
-          head= temp;
-        size++;
-    }
+    void display()throws Exception{
 
-    void delethead(){
-        if(head == null)return;
-        head = head.next;
-
-        if(head == null) tail = null;
-    }
-
-    void insert(int value , int index){
-        Node temp = head;
-        
-        for (int i = 1; i < index; i++) {
-            temp = temp.next;
+        if(len == 0){
+            throw new Exception("Stack is Empty");
         }
-        Node t = new Node(value);
-        t.next = temp.next;
-        temp.next = t ;
-    }
-
-    int search(int value){
-        int ind =0;
-        Node temp = head;
-        if (head == null) {
-            return -1;
-        }
-       while (temp != null) {
-           if(temp.value == value){
-            return ind;
-           }
-           ind++;
-           temp=temp.next;
-       }
-       return -1;
-    }
-
-    int get(int index){
-        Node temp  = head;
-        if (index == 0) {
-            return temp.value;
-        }
-        for (int i = 0; i < index; i++) {
-            temp = temp.next;
-        }
-        return temp.value;
-    }
-    
-    void deleteindex(int index){
-        Node temp = head;
-        if (head == null) {
-            return;
-        }
-        for (int i = 1; i < index; i++) {
-            temp=temp.next;
-        }
-        temp.next = temp.next.next;
-    }
-
-    void display(){
-        Node temp = head;
-        while(temp !=null){
-        System.out.println(temp.value);
-        temp = temp.next;
+        while (head!=null) {
+            System.out.println(head.val);
+            head = head.next;
         }
     }
 }
-
 public class Practice {
 
-    public static void main(String[] args) {
-        linkedlist list = new linkedlist();
-        list.addtail(10);
-        list.addtail(20);
-        list.addtail(150);
-        list.addtail(106);
-        list.addhead(109);
-
-       list.insert(555, 2);
-    //    System.out.println("From the get method = "+list.get(2));
-
-        list.deleteindex(3);
-       
-        list.display();
-
+    public static void main(String[] args)throws Exception {
         
-
+        MyStack st = new MyStack();
+        st.push(10);
+        st.push(20);
+        st.push(30);
+        System.out.println("Peek Values ");
+        st.peek();
+        System.out.println("Removing pop");
+        System.out.println(st.pop());
+        System.out.println("Display");
+        st.display();
     }
 }

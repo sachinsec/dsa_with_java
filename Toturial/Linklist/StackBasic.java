@@ -9,8 +9,6 @@ public class StackBasic {
         s.push(234);
         s.push(253);
 
-        System.out.println(s.lastElement());
-        s.remove(2);
-        System.out.println();
+        System.out.println(s.peek());
     }
 }
