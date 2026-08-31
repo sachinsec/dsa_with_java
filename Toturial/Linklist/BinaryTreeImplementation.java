@@ -38,9 +38,11 @@ public class BinaryTreeImplementation {
         c.left = f; 
         c.right = g;
 
-        display(a);
-        System.out.println();
-        System.out.println(size(a));
+        // display(a);
+        // System.out.println();
+        // System.out.println(size(a));
+        System.out.println(sum(a));
+       // System.out.println(pro(a));
 
     }
 
@@ -61,6 +63,22 @@ public class BinaryTreeImplementation {
         int rightsize = size(root.right);
 
         return 1 + leftsize + rightsize; 
+
+        // For the more looks good we use turnery
+        // return (root == null) ? 0: 1+ size(root.left) + size(root.right);
     }
     
+    static int sum(Node root){
+        if (root == null) {
+            return 0;
+        }
+        return root.val + sum(root.left) + sum(root.right);
+    }
+
+    static int pro(Node root){
+        if (root == null) {
+            return 1;
+        }
+        return root.val * pro(root.left) * pro(root.right);
+    }
 }
