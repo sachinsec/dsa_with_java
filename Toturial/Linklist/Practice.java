@@ -23,7 +23,9 @@ public class Practice {
         c.left = f;
         
         //display(a);
-        System.out.println(size(b));
+        System.out.println("Size of binary tree: "+size(b));
+        System.out.println("Sum of the binary tree: "+sum(a));
+        System.out.println("Product of the binary tree: "+product(a));
                 
     }
 
@@ -42,5 +44,18 @@ public class Practice {
         int rootright = size(root.right);
 
         return 1 + rootleft + rootright;
+    }
+
+    static int sum(Node root){
+        if(root==null)return 0;
+        return root.value + sum(root.left)+sum(root.right);
+    }
+
+    static int product(Node root){
+        if (root == null) {
+            return 1;
+        }
+
+        return root.value * product(root.left) * product(root.right);
     }
 }
