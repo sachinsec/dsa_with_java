@@ -41,8 +41,10 @@ public class BinaryTreeImplementation {
         // display(a);
         // System.out.println();
         // System.out.println(size(a));
-        System.out.println(sum(a));
-       // System.out.println(pro(a));
+        //System.out.println(sum(a));
+        // System.out.println(pro(a));
+        // System.out.println(max(a));
+        // System.out.println(min(a));
 
     }
 
@@ -82,5 +84,26 @@ public class BinaryTreeImplementation {
         return root.val * pro(root.left) * pro(root.right);
     }
 
-    
+    static int max(Node root){
+        if (root == null) {
+            return Integer.MIN_VALUE;
+        }
+        return Math.max(root.val,Math.max(max(root.left),max(root.right)));
+    }
+
+    static int min(Node root){
+        if (root==null) {
+            return Integer.MAX_VALUE;
+        }
+        return Math.min(root.val,Math.min(min(root.left),min(root.right)));
+    }
+
+
+    static int lavels(Node root){
+        if (root==null) {
+            return 0;
+        }
+        return 1 + Math.max(lavels(root.left),lavels(root.right));
+    }
+
 }

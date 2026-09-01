@@ -26,6 +26,8 @@ public class Practice {
         System.out.println("Size of binary tree: "+size(b));
         System.out.println("Sum of the binary tree: "+sum(a));
         System.out.println("Product of the binary tree: "+product(a));
+        System.out.println("Minimum value of the binary tree: "+min(a));
+        System.out.println("Maximum value of the binary tree: "+max(a));
                 
     }
 
@@ -57,5 +59,18 @@ public class Practice {
         }
 
         return root.value * product(root.left) * product(root.right);
+    }
+    static int min(Node root){
+        if (root == null) {
+            return Integer.MAX_VALUE;
+        }
+        return Math.min(root.value,Math.min(min(root.left),(min(root.right))));
+    }
+
+    static int max(Node root){
+        if (root == null) {
+            return Integer.MIN_VALUE;
+        }
+        return Math.max(root.value,Math.max(max(root.left), max(root.right)));
     }
 }
