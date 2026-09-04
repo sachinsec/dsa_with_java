@@ -1,76 +1,145 @@
+import java.util.LinkedList;
+import java.util.Queue;
 
+/**
+ * Practice
+ */
 class Node{
-    int value; 
-    Node right;
     Node left;
+    Node right;
     Node root;
-
+    int value;
     public Node(int value){
         this.value = value;
     }
 }
-public class Practice {
-    public static void main(String[] args) {
-        Node a = new Node(3);
-        Node b = new Node(2);
-        Node c = new Node(4);
-        Node d = new Node(1);
-        Node e = new Node(5);
-        Node f = new Node(4);
+class binary{
 
-        a.left = b;a.right=c;
-        b.left = d; b.right=e;
-        c.left = f;
-        
-        //display(a);
-        System.out.println("Size of binary tree: "+size(b));
-        System.out.println("Sum of the binary tree: "+sum(a));
-        System.out.println("Product of the binary tree: "+product(a));
-        System.out.println("Minimum value of the binary tree: "+min(a));
-        System.out.println("Maximum value of the binary tree: "+max(a));
-                
-    }
-
-    static void display(Node root){
+    public void dis(Node root){
         if (root == null) {
             return;
         }
-        System.out.print(root.value+" ");
-        display(root.left);
-        display(root.right);
+
+        System.out.println(root.value);
+        dis(root.left);
+        dis(root.right);
     }
 
-    static int size(Node root){
-        if(root == null) return 0;
-        int rootleft = size(root.left);
-        int rootright = size(root.right);
+    public int size(Node root){
+        if (root == null) {
+            return 0;
+        }
+        if (root.left==null && root.right==null) {
+            return 1;
+        }
+        int left = size(root.left);
+        int right = size(root.right);
 
-        return 1 + rootleft + rootright;
+        return 1+ left + right;
+
+    }
+    public int sum(Node root){
+        if (root == null) {
+            return 0;
+        }
+
+        return root.value+sum(root.left)+sum(root.right);
     }
 
-    static int sum(Node root){
-        if(root==null)return 0;
-        return root.value + sum(root.left)+sum(root.right);
-    }
-
-    static int product(Node root){
+    public int pro(Node root){
         if (root == null) {
             return 1;
         }
 
-        return root.value * product(root.left) * product(root.right);
-    }
-    static int min(Node root){
-        if (root == null) {
-            return Integer.MAX_VALUE;
-        }
-        return Math.min(root.value,Math.min(min(root.left),(min(root.right))));
+        return root.value*pro(root.left)*pro(root.right);
     }
 
-    static int max(Node root){
+    public int max(Node root){
         if (root == null) {
             return Integer.MIN_VALUE;
         }
-        return Math.max(root.value,Math.max(max(root.left), max(root.right)));
+        return Math.max(root.value,Math.max(max(root.left),max(root.right)));
+    }
+
+     public int min(Node root){
+        if (root == null) {
+            return Integer.MAX_VALUE;
+        }
+        return Math.min(root.value,Math.min(min(root.left),min(root.right)));
+    }
+    public void lavelorder(Node root){
+    
+        if (root==null) {
+            return;
+        }
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+
+        while (q.size() > 0) {
+            Node front = q.remove();
+            System.out.print(front.value + " ");
+            if (front.left!=null) {
+                q.add(front.left);
+            }if (front.right!=null) {
+                q.add(front.right);
+            }
+        }
+        System.out.println();
+
+    }
+
+    public void linewiseorder(Node root){
+         if (root==null) {
+            return;
+         }
+         Queue<Node> q = new LinkedList<>();
+         q.add(root);
+
+         while (!q.isEmpty()) {
+            int count = q.size();
+
+            for (int i = 0; i < count; i++) {
+                Node front = q.remove();
+                System.out.print(front.value+" ");
+                if (front.left!=null) {
+                    q.add(front.left);
+                }
+                if (front.right!=null) {
+                    q.add(front.right);
+                }
+            }
+            System.out.println();
+         }
+    }
+
+}
+public class Practice {
+
+    public static void main(String[] args) {
+        
+        Node a = new Node(5);
+        Node b = new Node(1);
+        Node c = new Node(15);
+        Node d = new Node(11);
+        Node e = new Node(19);
+        Node f = new Node(78);
+        Node g = new Node(31);
+
+        a.left=b;
+        a.right=c;
+
+        b.left =d;
+        b.right = e;
+
+        c.left =f;
+        c.right =g;
+        
+        binary bi = new binary();
+
+        // System.out.println(bi.size(a));
+        bi.lavelorder(a);
+        System.out.println();
+        bi.linewiseorder(a);
+
     }
 }
