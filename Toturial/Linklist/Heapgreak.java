@@ -6,6 +6,7 @@ import java.util.concurrent.PriorityBlockingQueue;
 public class Heapgreak {
     public static void main(String[] args) {
         
+        // Max-Heap (using reverse order comparator)
         PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
         int k = 4;
         int[] arr = {1,2,3,6,5,8,9,10};

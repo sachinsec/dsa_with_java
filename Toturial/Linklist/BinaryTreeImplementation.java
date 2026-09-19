@@ -57,9 +57,9 @@ public class BinaryTreeImplementation {
         // System.out.println(pro(a));
         // System.out.println(max(a));
         // System.out.println(min(a));
-        //levelOrder(a);
+        // levelOrder(a);
         //System.out.println(lavels(a));
-        levelOrderLineWiseWithoutPair(a);
+         levelOrderLineWiseWithoutPair(a);
 
     }
 
